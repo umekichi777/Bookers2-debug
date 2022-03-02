@@ -1,6 +1,6 @@
 <% if users.exists? %>
   <% users.each do |user| %>
-    <table>
+    <table class="table">
       <thead>
         <tr>
           <th>image</th>
@@ -23,5 +23,5 @@
     </table>
   <% end %>
 <% else %>
-  <p>ユーザーはいません</p>
+  <p>No User</p>
 <% end %>
