@@ -5,7 +5,7 @@ class Group < ApplicationRecord
   has_one_attached :group_image
 
   validates :name, presence: true
-  validates :introduction, presence: true
+  validates :introduction, presence: true, length: { maximum:200 }
 
 
   def get_group_image
