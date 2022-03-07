@@ -2,13 +2,14 @@ class GroupsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @group = Group.all
+    @groups = Group.all
   end
 
   def show
   end
 
   def new
+    @group = Group.new
   end
 
   def create
