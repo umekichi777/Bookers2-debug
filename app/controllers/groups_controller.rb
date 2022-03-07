@@ -29,7 +29,6 @@ class GroupsController < ApplicationController
   end
 
   def update
-    @group = Group.find(params[:id])
     if @group.update(group_params)
       redirect_to group_path(@group)
     else
