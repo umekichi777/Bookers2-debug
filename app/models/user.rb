@@ -18,6 +18,9 @@ class User < ApplicationRecord
   # 自分をフォローしている人　（一覧画面などで使う　user.followers）
   has_many :followers, through: :reverse_of_relationships, source: :follower
 
+  has_many :group_users
+  has_many :groups, through: :group_users
+
 
   has_one_attached :profile_image
 
