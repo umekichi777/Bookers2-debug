@@ -14,10 +14,20 @@
           <td><%= @group.name %></td>
           <td><%= @group.introduction %></td>
           <td>
+            <% @group.users.each do |member| %>
+              <%= member.name %><br>
+            <% end %>
+          </td>
+          <td>
             <% if @group.owner_id == current_user.id %>
               <%= link_to 'Edit', edit_group_path(@group), class: "btn btn-sm btn-success" %>
             <% end %>
           </td>
+          <% if @group.users.include?(current_user) %>
+            <%= link_to 'Leave group', group_path(@group), method: :delete, class: 'btn btn-sm btn-danger' %>
+          <% else %>
+            <%= link_to 'Join group', group_join_path(@group), class: "btn btn-sm btn-success" %>
+          <% end %>
         </tr>
       </table>
     </div>
