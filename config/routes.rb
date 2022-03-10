@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'chats/show'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   devise_for :users
 
@@ -17,6 +18,10 @@ Rails.application.routes.draw do
     resources :event_notices, only: [:create, :new]
     get 'event_notices' => 'event_notices#sent'
   end
+
+  resources :chats, only: [:create]
+  get 'chat/:id' => 'chats#show', as: 'chat'
+
 
   get 'search' => 'searches#search'
 
